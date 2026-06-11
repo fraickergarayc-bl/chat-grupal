@@ -1,0 +1,150 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  height: 100vh;
+  overflow: hidden;
+  background: linear-gradient(-45deg, #0b141a, #202c33, #005c4b, #00a884);
+  background-size: 400% 400%;
+  animation: gradientBG 10s ease infinite;
+}
+
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* LOGIN */
+#login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.login-box {
+  backdrop-filter: blur(15px);
+  background: rgba(32, 44, 51, 0.6);
+  padding: 30px;
+  border-radius: 15px;
+  color: white;
+  text-align: center;
+  width: 300px;
+}
+
+.login-box input {
+  padding: 12px;
+  margin: 10px 0;
+  width: 100%;
+  border-radius: 8px;
+  border: none;
+}
+
+.login-box button {
+  padding: 12px;
+  width: 100%;
+  background: #00a884;
+  border: none;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* APP */
+.app {
+  display: flex;
+  height: 100vh;
+}
+
+.sidebar {
+  width: 25%;
+  background: #111b21;
+  color: white;
+  padding: 15px;
+}
+
+.sidebar ul {
+  margin-top: 10px;
+  list-style: none;
+}
+
+.sidebar li {
+  padding: 5px 0;
+}
+
+/* CHAT */
+.chat {
+  width: 75%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* FONDO CHAT */
+.messages {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+  background-color: #0b141a;
+  background-image: radial-gradient(rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* MENSAJES */
+.message {
+  max-width: 60%;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 12px;
+}
+
+.me {
+  background: #005c4b;
+  color: white;
+  margin-left: auto;
+}
+
+.other {
+  background: #202c33;
+  color: white;
+  margin-right: auto;
+}
+
+.msg-user {
+  font-size: 12px;
+  opacity: 0.7;
+}
+
+.msg-time {
+  font-size: 10px;
+  text-align: right;
+  opacity: 0.6;
+}
+
+/* INPUT */
+.input-area {
+  display: flex;
+  padding: 10px;
+  background: #202c33;
+}
+
+.input-area input {
+  flex: 1;
+  padding: 12px;
+  border-radius: 20px;
+  border: none;
+}
+
+.input-area button {
+  margin-left: 10px;
+  padding: 12px;
+  background: #00a884;
+  border: none;
+  color: white;
+  border-radius: 20px;
+  cursor: pointer;
+}
