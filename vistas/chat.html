@@ -19,329 +19,49 @@
             --borde: rgba(255, 255, 255, 0.05);
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
-        }
-
-        body {
-            background-color: var(--bg-principal);
-            color: var(--texto-blanco);
-            height: 100vh;
-            display: flex;
-            overflow: hidden;
-        }
-
-        .app-container {
-            display: flex;
-            width: 100%;
-            height: 100vh;
-            padding: 15px;
-            gap: 15px;
-        }
-
-        /* COLUMNA 1: BARRA LATERAL IZQUIERDA */
-        .sidebar-izquierda {
-            width: 260px;
-            background-color: var(--bg-paneles);
-            border-radius: 12px;
-            display: flex;
-            flex-direction: column;
-            padding: 20px;
-            flex-shrink: 0;
-        }
-
-        .logo-area {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 20px;
-            font-weight: bold;
-            color: #4361ee;
-            margin-bottom: 25px;
-        }
-
-        .perfil-box {
-            background-color: rgba(255, 255, 255, 0.02);
-            border: 1px solid var(--borde);
-            padding: 12px;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 25px;
-        }
-
-        .avatar-simulado {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: linear-gradient(45deg, #4361ee, #3f37c9);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-        }
-
-        .perfil-info {
-            display: flex;
-            flex-direction: column;
-            overflow: hidden;
-        }
-
-        #user-email {
-            font-size: 14px;
-            font-weight: 600;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-
-        .status-text {
-            font-size: 11px;
-            color: var(--verde-online);
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-
-        .status-dot {
-            width: 7px;
-            height: 7px;
-            background-color: var(--verde-online);
-            border-radius: 50%;
-            display: inline-block;
-        }
-
-        .menu-seccion {
-            margin-bottom: 25px;
-        }
-
-        .menu-titulo {
-            font-size: 11px;
-            color: var(--texto-gris-oscuro);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 10px;
-            font-weight: bold;
-        }
-
-        .nav-item {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            padding: 10px 12px;
-            border-radius: 6px;
-            color: var(--texto-gris);
-            cursor: pointer;
-            font-size: 14px;
-            transition: all 0.2s;
-            margin-bottom: 4px;
-        }
-
-        .nav-item:hover, .nav-item.active {
-            background-color: rgba(67, 97, 238, 0.1);
-            color: var(--texto-blanco);
-        }
-
-        .btn-accion-lateral {
-            width: 100%;
-            padding: 11px;
-            border: none;
-            border-radius: 6px;
-            color: white;
-            font-weight: 600;
-            font-size: 13px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            margin-bottom: 10px;
-            transition: opacity 0.2s;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif; }
+        body { background-color: var(--bg-principal); color: var(--texto-blanco); height: 100vh; display: flex; overflow: hidden; }
+        .app-container { display: flex; width: 100%; height: 100vh; padding: 15px; gap: 15px; }
+        .sidebar-izquierda { width: 260px; background-color: var(--bg-paneles); border-radius: 12px; display: flex; flex-direction: column; padding: 20px; flex-shrink: 0; }
+        .logo-area { display: flex; align-items: center; gap: 10px; font-size: 20px; font-weight: bold; color: #4361ee; margin-bottom: 25px; }
+        .perfil-box { background-color: rgba(255, 255, 255, 0.02); border: 1px solid var(--borde); padding: 12px; border-radius: 8px; display: flex; align-items: center; gap: 10px; margin-bottom: 25px; }
+        .avatar-simulado { width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(45deg, #4361ee, #3f37c9); display: flex; align-items: center; justify-content: center; font-weight: bold; }
+        .perfil-info { display: flex; flex-direction: column; overflow: hidden; }
+        #user-email { font-size: 14px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .status-text { font-size: 11px; color: var(--verde-online); display: flex; align-items: center; gap: 5px; }
+        .status-dot { width: 7px; height: 7px; background-color: var(--verde-online); border-radius: 50%; display: inline-block; }
+        .menu-seccion { margin-bottom: 25px; }
+        .menu-titulo { font-size: 11px; color: var(--texto-gris-oscuro); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; font-weight: bold; }
+        .nav-item { display: flex; align-items: center; gap: 10px; padding: 10px 12px; border-radius: 6px; color: var(--texto-gris); cursor: pointer; font-size: 14px; transition: all 0.2s; margin-bottom: 4px; }
+        .nav-item:hover, .nav-item.active { background-color: rgba(67, 97, 238, 0.1); color: var(--texto-blanco); }
+        .btn-accion-lateral { width: 100%; padding: 11px; border: none; border-radius: 6px; color: white; font-weight: 600; font-size: 13px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 10px; transition: opacity 0.2s; }
         #btn-chat-1vs1 { background-color: #2b3b5c; }
         #btn-crear-grupo { background-color: #1e5335; }
         .btn-accion-lateral:hover { opacity: 0.9; }
-
         .footer-sidebar { margin-top: auto; }
-
-        #btn-cerrar-sesion {
-            background: none;
-            border: none;
-            color: #ff4757;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 14px;
-            cursor: pointer;
-            padding: 10px 12px;
-            width: 100%;
-        }
-
-        /* COLUMNA 2: CHATS CENTRALES */
-        .panel-central {
-            flex: 1;
-            background-color: var(--bg-paneles);
-            border-radius: 12px;
-            display: flex;
-            flex-direction: column;
-            overflow: hidden;
-        }
-
-        .cabecera-central {
-            padding: 20px;
-            border-bottom: 1px solid var(--borde);
-        }
-
-        #titulo-chat-activo {
-            font-size: 18px;
-            font-weight: 600;
-        }
-
-        .caja-mensajes {
-            flex: 1;
-            padding: 20px;
-            overflow-y: auto;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .vista-vacia-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100%;
-            text-align: center;
-            color: var(--texto-gris);
-        }
-
-        .icono-candado-box {
-            background-color: rgba(108, 92, 231, 0.1);
-            color: var(--morado-admin);
-            padding: 12px;
-            border-radius: 50%;
-            margin-top: 15px;
-            font-size: 12px;
-            font-weight: bold;
-        }
-
-        .formulario-chat {
-            padding: 20px;
-            border-top: 1px solid var(--borde);
-            display: flex;
-            gap: 10px;
-            align-items: center;
-        }
-
-        .btn-adjuntos {
-            background: none;
-            border: none;
-            font-size: 18px;
-            cursor: pointer;
-            color: var(--texto-gris);
-        }
-
-        #input-mensaje {
-            flex: 1;
-            background-color: var(--bg-input);
-            border: 1px solid var(--borde);
-            border-radius: 6px;
-            padding: 12px 15px;
-            color: white;
-            outline: none;
-            font-size: 14px;
-        }
-
-        #btn-enviar-mensaje {
-            background-color: #4361ee;
-            color: white;
-            border: none;
-            padding: 12px 20px;
-            border-radius: 6px;
-            font-weight: 600;
-            cursor: pointer;
-        }
+        #btn-cerrar-sesion { background: none; border: none; color: #ff4757; display: flex; align-items: center; gap: 10px; font-size: 14px; cursor: pointer; padding: 10px 12px; width: 100%; }
+        .panel-central { flex: 1; background-color: var(--bg-paneles); border-radius: 12px; display: flex; flex-direction: column; overflow: hidden; }
+        .cabecera-central { padding: 20px; border-bottom: 1px solid var(--borde); }
+        #titulo-chat-activo { font-size: 18px; font-weight: 600; }
+        .caja-mensajes { flex: 1; padding: 20px; overflow-y: auto; display: flex; flex-direction: column; gap: 12px; }
+        .vista-vacia-container { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; text-align: center; color: var(--texto-gris); }
+        .icono-candado-box { background-color: rgba(108, 92, 231, 0.1); color: var(--morado-admin); padding: 12px; border-radius: 50%; margin-top: 15px; font-size: 12px; font-weight: bold; }
+        .formulario-chat { padding: 20px; border-top: 1px solid var(--borde); display: flex; gap: 10px; align-items: center; }
+        .btn-adjuntos { background: none; border: none; font-size: 18px; cursor: pointer; color: var(--texto-gris); }
+        #input-mensaje { flex: 1; background-color: var(--bg-input); border: 1px solid var(--borde); border-radius: 6px; padding: 12px 15px; color: white; outline: none; font-size: 14px; }
+        #btn-enviar-mensaje { background-color: #4361ee; color: white; border: none; padding: 12px 20px; border-radius: 6px; font-weight: 600; cursor: pointer; }
         #btn-enviar-mensaje:disabled { opacity: 0.3; }
-
-        /* COLUMNA 3: USUARIOS EN LÍNEA */
-        .sidebar-derecha {
-            width: 280px;
-            background-color: var(--bg-paneles);
-            border-radius: 12px;
-            display: flex;
-            flex-direction: column;
-            padding: 20px;
-            flex-shrink: 0;
-        }
-
-        .cabecera-derecha {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-
-        .contador-badge {
-            background-color: rgba(255, 255, 255, 0.05);
-            padding: 2px 8px;
-            border-radius: 10px;
-            font-size: 12px;
-            color: var(--texto-gris);
-        }
-
-        .lista-vacia {
-            display: flex;
-            flex-direction: column;
-            gap: 5px;
-            overflow-y: auto;
-        }
-
-        .usuario-row {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            padding: 8px;
-            border-radius: 6px;
-            font-size: 14px;
-            transition: background 0.2s;
-        }
+        .sidebar-derecha { width: 280px; background-color: var(--bg-paneles); border-radius: 12px; display: flex; flex-direction: column; padding: 20px; flex-shrink: 0; }
+        .cabecera-derecha { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+        .contador-badge { background-color: rgba(255, 255, 255, 0.05); padding: 2px 8px; border-radius: 10px; font-size: 12px; color: var(--texto-gris); }
+        .lista-vacia { display: flex; flex-direction: column; gap: 5px; overflow-y: auto; }
+        .usuario-row { display: flex; align-items: center; gap: 10px; padding: 8px; border-radius: 6px; font-size: 14px; transition: background 0.2s; }
         .usuario-row:hover { background-color: rgba(255, 255, 255, 0.02); }
-
-        .dot-status-user {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            flex-shrink: 0;
-        }
+        .dot-status-user { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
         .dot-online { background-color: var(--verde-online); box-shadow: 0 0 6px var(--verde-online); }
         .dot-offline { background-color: #ff4757; }
-
-        .avatar-mini {
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            background-color: rgba(255,255,255,0.05);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 11px;
-            font-weight: bold;
-        }
-
-        /* DISEÑO DE BURBUJAS DE MENSAJES MULTIMEDIA */
-        .media-contenido {
-            max-width: 100%;
-            border-radius: 6px;
-            margin-top: 5px;
-            display: block;
-        }
-
+        .avatar-mini { width: 32px; height: 32px; border-radius: 50%; background-color: rgba(255,255,255,0.05); display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: bold; }
+        .media-contenido { max-width: 100%; border-radius: 6px; margin-top: 5px; display: block; }
         ::-webkit-scrollbar { width: 4px; }
         ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 2px; }
     </style>
@@ -351,10 +71,8 @@
     <input type="file" id="file-uploader" style="display: none;" accept="image/*,video/*,application/*">
 
     <div class="app-container">
-        
         <aside class="sidebar-izquierda">
             <div class="logo-area">💬 ChatApp</div>
-
             <div class="perfil-box">
                 <div class="avatar-simulated" id="avatar-global">U</div>
                 <div class="perfil-info">
@@ -362,23 +80,19 @@
                     <span class="status-text"><span class="status-dot"></span> En línea</span>
                 </div>
             </div>
-
             <nav class="menu-seccion">
                 <div class="menu-titulo">Navegación</div>
                 <div class="nav-item active" id="item-nav-general">🔹 Chat General</div>
             </nav>
-
             <div class="menu-seccion">
                 <div class="menu-titulo">Acciones</div>
                 <button id="btn-chat-1vs1" class="btn-accion-lateral">➕ Crear chat nuevo (1 vs 1)</button>
                 <button id="btn-crear-grupo" class="btn-accion-lateral">➕ Crear grupo</button>
             </div>
-
             <div class="menu-seccion" style="flex: 1; overflow-y: auto;">
                 <div class="menu-titulo">Tus Conversaciones</div>
                 <div id="lista-salas" class="lista-vacia"></div>
             </div>
-
             <div class="footer-sidebar">
                 <button id="btn-cerrar-sesion">🚪 Cerrar sesión</button>
             </div>
@@ -388,10 +102,7 @@
             <header class="cabecera-central">
                 <h2 id="titulo-chat-activo">Chat General</h2>
             </header>
-
-            <div id="caja-mensajes" class="caja-mensajes">
-                </div>
-
+            <div id="caja-mensajes" class="caja-mensajes"></div>
             <form id="formulario-chat" class="formulario-chat">
                 <button type="button" id="btn-emoji" class="btn-adjuntos">😊</button>
                 <button type="button" id="btn-adjuntar" class="btn-adjuntos">📁</button>
@@ -407,7 +118,6 @@
             </div>
             <div id="lista-usuarios-online" class="lista-vacia"></div>
         </aside>
-
     </div>
 
     <script src="https://www.gstatic.com/firebasejs/10.0.0/firebase-app-compat.js"></script>
@@ -416,83 +126,54 @@
     <script src="https://www.gstatic.com/firebasejs/10.0.0/firebase-storage-compat.js"></script>
     
     <script>
-        // 1. CONFIGURACIÓN ABSOLUTA INTEGRADA
-        const firebaseConfig = {
-            apiKey: "AIzaSyCRF74kjKmSJxb5ruw3DsmhRj2sz6dHSG8",
-            authDomain: "privchat-5d565.firebaseapp.com",
-            projectId: "privchat-5d565",
-            storageBucket: "privchat-5d565.firebasestorage.app",
-            messagingSenderId: "344652534492",
-            appId: "1:344652534492:web:ad18ec0254e68459559a19"
-        };
-
-        if (!firebase.apps.length) {
-            firebase.initializeApp(firebaseConfig);
-        }
+        const firebaseConfig = { apiKey: "AIzaSyCRF74kjKmSJxb5ruw3DsmhRj2sz6dHSG8", authDomain: "privchat-5d565.firebaseapp.com", projectId: "privchat-5d565", storageBucket: "privchat-5d565.firebasestorage.app", messagingSenderId: "344652534492", appId: "1:344652534492:web:ad18ec0254e68459559a19" };
+        if (!firebase.apps.length) firebase.initializeApp(firebaseConfig);
 
         const auth = firebase.auth();
         const db = firebase.firestore();
         const storage = firebase.storage();
-
         let usuarioActual = null;
-        let idChatActivo = "general"; // Por defecto arranca en el chat general público
+        let idChatActivo = "general";
         let escuchadorMensajes = null;
 
-        // 2. VERIFICACIÓN DE SESIÓN Y ENTRADA DE PRESENCIA
         auth.onAuthStateChanged((user) => {
             if (user) {
                 usuarioActual = user;
-                document.getElementById('user-email').textContent = user.email;
-                document.getElementById('avatar-global').textContent = user.email.substring(0,2).toUpperCase();
+                // Añadido .split('@')[0]
+                document.getElementById('user-email').textContent = user.email.split('@')[0];
+                document.getElementById('avatar-global').textContent = user.email.split('@')[0].substring(0,2).toUpperCase();
                 
-                // Forzar sincronización de perfil y estado online
-                db.collection('usuarios').doc(user.uid).set({
-                    uid: user.uid,
-                    email: user.email,
-                    estado: 'online',
-                    ultimaConexion: firebase.firestore.FieldValue.serverTimestamp()
-                }, { merge: true }).then(() => {
-                    // Inicializar lecturas en tiempo real si la base de datos respondió correctamente
+                db.collection('usuarios').doc(user.uid).set({ uid: user.uid, email: user.email, estado: 'online', ultimaConexion: firebase.firestore.FieldValue.serverTimestamp() }, { merge: true }).then(() => {
                     escucharUsuarios();
                     escucharSalas();
                     cargarChat(idChatActivo, "Chat General");
                 });
-
             } else {
                 window.location.href = '/index.html';
             }
         });
 
-        // CONTROL AUTOMÁTICO DE DESCONEXIÓN (OFFLINE)
-        window.addEventListener('beforeunload', () => {
-            if (usuarioActual) {
-                db.collection('usuarios').doc(usuarioActual.uid).update({ estado: 'offline' });
-            }
-        });
+        window.addEventListener('beforeunload', () => { if (usuarioActual) db.collection('usuarios').doc(usuarioActual.uid).update({ estado: 'offline' }); });
 
-        // 3. RENDERIZAR LISTA DE USUARIOS (COLUMNA DERECHA)
         function escucharUsuarios() {
             db.collection('usuarios').onSnapshot((snapshot) => {
                 const contenedor = document.getElementById('lista-usuarios-online');
                 const contador = document.getElementById('contador-online');
                 contenedor.innerHTML = '';
                 let cont = 0;
-
                 snapshot.forEach((doc) => {
                     const u = doc.data();
                     if (u.uid === usuarioActual.uid) return;
-
                     const esOnline = u.estado === 'online';
                     if (esOnline) cont++;
-
+                    const nombreUsuario = u.email.split('@')[0]; // Añadido .split('@')[0]
                     const row = document.createElement('div');
                     row.className = 'usuario-row';
                     row.onclick = () => crearChat1vs1(u);
-                    
                     row.innerHTML = `
-                        <div class="avatar-mini">${u.email.substring(0,2).toUpperCase()}</div>
+                        <div class="avatar-mini">${nombreUsuario.substring(0,2).toUpperCase()}</div>
                         <div style="flex:1; display:flex; flex-direction:column;">
-                            <span style="font-weight:500; font-size:13px;">${u.email.split('@')[0]}</span>
+                            <span style="font-weight:500; font-size:13px;">${nombreUsuario}</span>
                             <span style="font-size:11px; color:${esOnline ? '#2ed573' : '#7f8c8d'};">${esOnline ? 'En línea' : 'Desconectado'}</span>
                         </div>
                         <span class="dot-status-user ${esOnline ? 'dot-online' : 'dot-offline'}"></span>
@@ -503,191 +184,104 @@
             });
         }
 
-        // 4. RENDERIZAR LISTA DE SALAS DISPONIBLES (COLUMNA IZQUIERDA)
         function escucharSalas() {
             db.collection('salas').orderBy('actualizadoEn', 'desc').onSnapshot((snapshot) => {
                 const contenedor = document.getElementById('lista-salas');
                 contenedor.innerHTML = '';
-
                 snapshot.forEach((doc) => {
                     const sala = doc.data();
-                    if (sala.tipo === '1vs1' && !sala.participantes.includes(usuarioActual.uid)) return;
-
+                    if (sala.tipo === '1vs1' && (!sala.participantes || !sala.participantes.includes(usuarioActual.uid))) return;
+                    const nombreSala = sala.nombre.split('@')[0]; // Añadido .split('@')[0]
                     const item = document.createElement('div');
                     item.className = `nav-item ${idChatActivo === doc.id ? 'active' : ''}`;
-                    item.textContent = `${sala.tipo === 'grupo' ? '👥' : '💬'} ${sala.nombre}`;
+                    item.textContent = `${sala.tipo === 'grupo' ? '👥' : '💬'} ${nombreSala}`;
                     item.onclick = () => cargarChat(doc.id, sala.nombre);
                     contenedor.appendChild(item);
                 });
             });
         }
 
-        // Volver al chat general desde el botón del menú de navegación
-        document.getElementById('item-nav-general').onclick = () => {
-            cargarChat("general", "Chat General");
-        };
+        document.getElementById('item-nav-general').onclick = () => cargarChat("general", "Chat General");
 
-        // 5. ENVIAR MENSAJES DE TEXTO
         document.getElementById('formulario-chat').addEventListener('submit', (e) => {
             e.preventDefault();
             const input = document.getElementById('input-mensaje');
             const texto = input.value.trim();
             if (!texto) return;
-
             enviarMensajeHaciaFirestore(texto, 'texto');
             input.value = '';
         });
 
         function enviarMensajeHaciaFirestore(contenido, tipo) {
-            const dataMsg = {
-                remitenteId: usuarioActual.uid,
-                remitenteEmail: usuarioActual.email,
-                enviadoEn: firebase.firestore.FieldValue.serverTimestamp(),
-                tipo: tipo
-            };
-
-            if (tipo === 'texto') dataMsg.texto = contenido;
-            else dataMsg.fileUrl = contenido;
-
-            db.collection('salas').doc(idChatActivo).collection('mensajes').add(dataMsg).then(() => {
-                db.collection('salas').doc(idChatActivo).set({
-                    actualizadoEn: firebase.firestore.FieldValue.serverTimestamp()
-                }, { merge: true });
+            db.collection('salas').doc(idChatActivo).collection('mensajes').add({
+                remitenteId: usuarioActual.uid, remitenteEmail: usuarioActual.email, enviadoEn: firebase.firestore.FieldValue.serverTimestamp(), tipo: tipo, texto: contenido
+            }).then(() => {
+                db.collection('salas').doc(idChatActivo).set({ actualizadoEn: firebase.firestore.FieldValue.serverTimestamp() }, { merge: true });
             });
         }
 
-        // 6. CARGAR MENSAJES EN TIEMPO REAL
         function cargarChat(idSala, nombreSala) {
             idChatActivo = idSala;
-            document.getElementById('titulo-chat-activo').textContent = nombreSala;
-            
-            // Actualizar clases de navegación visual
-            document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('active'));
-            if (idSala === 'general') document.getElementById('item-nav-general').classList.add('active');
-
+            document.getElementById('titulo-chat-activo').textContent = nombreSala.split('@')[0]; // Añadido .split('@')[0]
             if (escuchadorMensajes) escuchadorMensajes();
-
-            escuchadorMensajes = db.collection('salas').doc(idSala).collection('mensajes')
-                .orderBy('enviadoEn', 'asc')
-                .onSnapshot((snapshot) => {
-                    const caja = document.getElementById('caja-mensajes');
-                    caja.innerHTML = '';
-
-                    snapshot.forEach((doc) => {
-                        const m = doc.data();
-                        const esMio = m.remitenteId === usuarioActual.uid;
-
-                        const msgBloque = document.createElement('div');
-                        msgBloque.style.display = 'flex';
-                        msgBloque.style.justifyContent = esMio ? 'flex-end' : 'flex-start';
-                        msgBloque.style.marginBottom = '12px';
-
-                        const burbuja = document.createElement('div');
-                        burbuja.style.background = esMio ? '#4361ee' : '#1b2130';
-                        burbuja.style.padding = '10px 14px';
-                        burbuja.style.borderRadius = '8px';
-                        burbuja.style.maxWidth = '65%';
-                        burbuja.style.color = '#fff';
-
-                        let contenidoHTML = `<div style="font-size:11px; color:#7f8c8d; margin-bottom:4px;">${m.remitenteEmail.split('@')[0]}</div>`;
-                        
-                        if (m.tipo === 'texto') {
-                            contenidoHTML += `<div>${m.texto}</div>`;
-                        } else if (m.tipo === 'image') {
-                            contenidoHTML += `<img src="${m.fileUrl}" class="media-contenido" style="max-height:200px;" onclick="window.open('${m.fileUrl}')">`;
-                        } else if (m.tipo === 'video') {
-                            contenidoHTML += `<video src="${m.fileUrl}" controls class="media-contenido" style="max-height:220px;"></video>`;
-                        } else {
-                            contenidoHTML += `<a href="${m.fileUrl}" target="_blank" style="color:#2ed573; text-decoration:underline; font-size:13px;">📁 Descargar Archivo Adjunto</a>`;
-                        }
-
-                        burbuja.innerHTML = contenidoHTML;
-                        msgBloque.appendChild(burbuja);
-                        caja.appendChild(msgBloque);
-                    });
-                    caja.scrollTop = caja.scrollHeight;
+            escuchadorMensajes = db.collection('salas').doc(idSala).collection('mensajes').orderBy('enviadoEn', 'asc').onSnapshot((snapshot) => {
+                const caja = document.getElementById('caja-mensajes');
+                caja.innerHTML = '';
+                snapshot.forEach((doc) => {
+                    const m = doc.data();
+                    const esMio = m.remitenteId === usuarioActual.uid;
+                    const nombreRemitente = m.remitenteEmail.split('@')[0]; // Añadido .split('@')[0]
+                    const msgBloque = document.createElement('div');
+                    msgBloque.style.display = 'flex';
+                    msgBloque.style.justifyContent = esMio ? 'flex-end' : 'flex-start';
+                    msgBloque.style.marginBottom = '12px';
+                    const burbuja = document.createElement('div');
+                    burbuja.style.background = esMio ? '#4361ee' : '#1b2130';
+                    burbuja.style.padding = '10px 14px';
+                    burbuja.style.borderRadius = '8px';
+                    burbuja.style.maxWidth = '65%';
+                    burbuja.style.color = '#fff';
+                    burbuja.innerHTML = `<div style="font-size:11px; color:#7f8c8d; margin-bottom:4px;">${nombreRemitente}</div><div>${m.texto}</div>`;
+                    msgBloque.appendChild(burbuja);
+                    caja.appendChild(msgBloque);
                 });
+                caja.scrollTop = caja.scrollHeight;
+            });
         }
 
-        // 7. ENVIAR EMOJIS DIRECTOS
         document.getElementById('btn-emoji').addEventListener('click', () => {
-            const listaEmojis = ['😊', '😂', '🔥', '👀', '👍', '❤️', '👑'];
-            const randomEmoji = listaEmojis[Math.floor(Math.random() * listaEmojis.length)];
             const input = document.getElementById('input-mensaje');
-            input.value += randomEmoji;
+            input.value += '😊';
             input.focus();
         });
 
-        // 8. SUBIR MULTIMEDIA (FOTOS, VIDEOS Y ARCHIVOS) A STORAGE
         const fileUploader = document.getElementById('file-uploader');
         document.getElementById('btn-adjuntar').addEventListener('click', () => fileUploader.click());
 
         fileUploader.addEventListener('change', (e) => {
             const file = e.target.files[0];
             if (!file) return;
-
-            const pathRef = `chats/${idChatActivo}/${Date.now()}_${file.name}`;
-            const uploadTask = storage.ref().child(pathRef).put(file);
-
-            document.getElementById('input-mensaje').placeholder = "Subiendo archivo... por favor espera";
-
-            uploadTask.then(snapshot => snapshot.ref.getDownloadURL()).then((url) => {
-                let tipoArchivo = 'file';
-                if (file.type.startsWith('image/')) tipoArchivo = 'image';
-                else if (file.type.startsWith('video/')) tipoArchivo = 'video';
-
-                enviarMensajeHaciaFirestore(url, tipoArchivo);
-                document.getElementById('input-mensaje').placeholder = "Escribe un mensaje aquí...";
-                fileUploader.value = ''; 
-            }).catch(err => alert("Error al subir archivo: " + err.message));
+            const uploadTask = storage.ref().child(`chats/${idChatActivo}/${Date.now()}_${file.name}`).put(file);
+            uploadTask.then(s => s.ref.getDownloadURL()).then(url => enviarMensajeHaciaFirestore(url, 'file'));
         });
 
-        // 9. ACCIONES: CREAR CHATS PRIVADOS Y GRUPOS
-        function crearChat1vs1(usuarioDestino) {
-            const idSalaPrivada = usuarioActual.uid < usuarioDestino.uid 
-                ? `${usuarioActual.uid}_${usuarioDestino.uid}` 
-                : `${usuarioDestino.uid}_${usuarioActual.uid}`;
-            
-            const nombreMostrar = usuarioDestino.email.split('@')[0];
-
-            db.collection('salas').doc(idSalaPrivada).set({
-                nombre: nombreMostrar,
-                tipo: '1vs1',
-                participantes: [usuarioActual.uid, usuarioDestino.uid],
-                actualizadoEn: firebase.firestore.FieldValue.serverTimestamp()
-            }, { merge: true }).then(() => {
-                cargarChat(idSalaPrivada, nombreMostrar);
-            });
+        function crearChat1vs1(uDestino) {
+            const id = usuarioActual.uid < uDestino.uid ? `${usuarioActual.uid}_${uDestino.uid}` : `${uDestino.uid}_${usuarioActual.uid}`;
+            db.collection('salas').doc(id).set({ nombre: uDestino.email, tipo: '1vs1', participantes: [usuarioActual.uid, uDestino.uid], actualizadoEn: firebase.firestore.FieldValue.serverTimestamp() }, { merge: true }).then(() => cargarChat(id, uDestino.email));
         }
 
         document.getElementById('btn-chat-1vs1').onclick = () => {
-            const correo = prompt("Introduce el correo exacto del usuario:");
-            if (!correo) return;
-            db.collection('usuarios').where('email', '==', correo.trim()).get().then((snap) => {
-                if (snap.empty) alert("El usuario no está registrado.");
-                else crearChat1vs1(snap.docs[0].data());
-            });
+            const email = prompt("Correo del usuario:");
+            if (email) db.collection('usuarios').where('email', '==', email.trim()).get().then(s => { if (!s.empty) crearChat1vs1(s.docs[0].data()); else alert("No existe."); });
         };
 
         document.getElementById('btn-crear-grupo').onclick = () => {
-            const nombre = prompt("Nombre del nuevo grupo:");
-            if (!nombre || !nombre.trim()) return;
-
-            db.collection('salas').add({
-                nombre: nombre.trim(),
-                tipo: 'grupo',
-                creadoPor: usuarioActual.uid,
-                actualizadoEn: firebase.firestore.FieldValue.serverTimestamp()
-            });
+            const nombre = prompt("Nombre del grupo:");
+            if (nombre) db.collection('salas').add({ nombre: nombre, tipo: 'grupo', actualizadoEn: firebase.firestore.FieldValue.serverTimestamp() });
         };
 
-        // 10. CERRAR SESIÓN SEGURA
         document.getElementById('btn-cerrar-sesion').onclick = () => {
-            db.collection('usuarios').doc(usuarioActual.uid).update({ estado: 'offline' }).then(() => {
-                return auth.signOut();
-            }).then(() => {
-                window.location.href = '/index.html';
-            });
+            db.collection('usuarios').doc(usuarioActual.uid).update({ estado: 'offline' }).then(() => auth.signOut());
         };
     </script>
 </body>
