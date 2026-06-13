@@ -15,11 +15,6 @@
         }
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
         body {
-            background-image: url('/img/fondo.jpg'); /* Tu imagen de fondo original */
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
             background-color: #0f0c1b;
             color: var(--texto-principal);
             min-height: 100vh;
@@ -31,7 +26,6 @@
         .contenedor-login {
             background: rgba(22, 18, 44, 0.75);
             backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
             border: 1px solid var(--borde-sutil);
             padding: 30px;
             border-radius: 16px;
@@ -83,7 +77,7 @@
                     <label>Contraseña</label>
                     <input type="password" id="reg-password" placeholder="Mínimo 6 caracteres" required>
                 </div>
-                <button type="submit" class="btn-enviar">Registrarse y Guardar</button>
+                <button type="submit" class="btn-enviar">Registrarse</button>
             </form>
         </div>
 
@@ -107,7 +101,6 @@
     <script src="https://www.gstatic.com/firebasejs/10.0.0/firebase-auth-compat.js"></script>
 
     <script>
-        // CONFIGURACIÓN REAL INTEGRADA DE PRIVCHAT
         const firebaseConfig = {
             apiKey: "AIzaSyCRF74kjKmSJxb5ruw3DsmhRj2sz6dHSG8",
             authDomain: "privchat-5d565.firebaseapp.com",
@@ -117,18 +110,15 @@
             appId: "1:344652534492:web:ad18ec0254e68459559a19"
         };
         
-        // Inicializar Firebase localmente
-        if (!firebase.apps.length) {
-            firebase.initializeApp(firebaseConfig);
-        }
-        const authLocal = firebase.auth();
+        if (!firebase.apps.length) firebase.initializeApp(firebaseConfig);
+        const auth = firebase.auth();
 
-        // Alternar visualmente entre registrarse e ingresar
         function cambiarPestaña(tipo) {
             const regSection = document.getElementById('seccion-registro');
             const logSection = document.getElementById('seccion-login');
             const tabReg = document.getElementById('tab-registro');
             const tabLog = document.getElementById('tab-login');
+            
             if(tipo === 'registro') {
                 regSection.style.display = 'block'; logSection.style.display = 'none';
                 tabReg.classList.add('activo'); tabLog.classList.remove('activo');
@@ -137,45 +127,26 @@
                 tabLog.classList.add('activo'); tabReg.classList.remove('activo');
             }
         }
-        cambiarPestaña('login'); // Por defecto abre el login
+        cambiarPestaña('login');
 
-        // Evento de Registro Directo en Authentication
-        document.getElementById('form-registro').addEventListener('submit', function(e) {
+        // Registro
+        document.getElementById('form-registro').addEventListener('submit', (e) => {
             e.preventDefault();
-            
-            const email = document.getElementById('reg-email').value.trim();
+            const email = document.getElementById('reg-email').value;
             const password = document.getElementById('reg-password').value;
-
-            if (password.length < 6) {
-                alert("La contraseña debe tener mínimo 6 caracteres.");
-                return;
-            }
-
-            authLocal.createUserWithEmailAndPassword(email, password)
-                .then((userCredential) => {
-                    alert("¡Cuenta registrada con éxito en Authentication!");
-                    window.location.href = '/chat.html'; // Redirige a la interfaz del chat
-                })
-                .catch((error) => {
-                    console.error("Error en Auth:", error);
-                    alert("Firebase dice: " + error.message);
-                });
+            auth.createUserWithEmailAndPassword(email, password)
+                .then(() => window.location.href = '/chat') // REDIRECCIÓN CORRECTA AL SERVIDOR
+                .catch(err => alert(err.message));
         });
 
-        // Evento de Inicio de Sesión
-        document.getElementById('form-login').addEventListener('submit', function(e) {
+        // Login
+        document.getElementById('form-login').addEventListener('submit', (e) => {
             e.preventDefault();
-            const email = document.getElementById('login-email').value.trim();
+            const email = document.getElementById('login-email').value;
             const password = document.getElementById('login-password').value;
-
-            authLocal.signInWithEmailAndPassword(email, password)
-                .then(() => {
-                    window.location.href = '/chat.html';
-                })
-                .catch((error) => {
-                    console.error("Error en Login:", error);
-                    alert("Error al entrar: " + error.message);
-                });
+            auth.signInWithEmailAndPassword(email, password)
+                .then(() => window.location.href = '/chat') // REDIRECCIÓN CORRECTA AL SERVIDOR
+                .catch(err => alert(err.message));
         });
     </script>
 </body>
