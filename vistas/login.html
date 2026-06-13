@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PrivChat - Acceso Seguro</title>
+    
+    <style>
+        :root {
+            --morado-neon: #a020f0;
+            --morado-brillante: #bc6ff1;
+            --texto-principal: #ffffff;
+            --texto-secundario: #a29bfe;
+            --borde-sutil: rgba(160, 32, 240, 0.3);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+        body {
+            background-image: url('/img/fondo.jpg'); /* Tu imagen de fondo original */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-color: #0f0c1b;
+            color: var(--texto-principal);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .contenedor-login {
+            background: rgba(22, 18, 44, 0.75);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid var(--borde-sutil);
+            padding: 30px;
+            border-radius: 16px;
+            width: 100%;
+            max-width: 420px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+        }
+        .barra-superior { display: flex; gap: 10px; margin-bottom: 25px; }
+        .btn-pestaña {
+            flex: 1; background: rgba(255, 255, 255, 0.05); border: 1px solid var(--borde-sutil);
+            color: var(--texto-secundario); padding: 10px; border-radius: 8px; cursor: pointer;
+            font-weight: 600; font-size: 13px; transition: all 0.2s;
+        }
+        .btn-pestaña:hover, .btn-pestaña.activo { background: rgba(160, 32, 240, 0.25); color: #fff; border-color: var(--morado-brillante); }
+        h2 { font-size: 20px; font-weight: 600; margin-bottom: 15px; color: #fff; border-bottom: 1px solid var(--borde-sutil); padding-bottom: 6px; }
+        .bloque-formulario { display: none; }
+        .campo-grupo { margin-bottom: 14px; }
+        label { display: block; font-size: 13px; color: var(--texto-secundario); margin-bottom: 6px; }
+        input {
+            width: 100%; background: rgba(15, 12, 27, 0.6); border: 1px solid var(--borde-sutil);
+            border-radius: 8px; padding: 12px 14px; color: #fff; font-size: 14px; outline: none;
+            transition: all 0.3s;
+        }
+        input:focus { border-color: var(--morado-brillante); box-shadow: 0 0 8px rgba(188, 111, 241, 0.4); }
+        .btn-enviar {
+            width: 100%; background: var(--morado-neon); color: #fff; border: none; padding: 12px;
+            border-radius: 8px; cursor: pointer; font-weight: 600; font-size: 14px; margin-top: 10px;
+            box-shadow: 0 0 10px var(--morado-neon);
+        }
+        .btn-enviar:hover { background: #bd4bfa; box-shadow: 0 0 15px var(--morado-brillante); }
+    </style>
+</head>
+<body>
+
+    <div class="contenedor-login">
+        <div class="barra-superior">
+            <button id="tab-registro" class="btn-pestaña" onclick="cambiarPestaña('registro')">Registrarse</button>
+            <button id="tab-login" class="btn-pestaña" onclick="cambiarPestaña('login')">Iniciar Sesión</button>
+        </div>
+
+        <div id="seccion-registro" class="bloque-formulario">
+            <h2>Crear Cuenta</h2>
+            <form id="form-registro">
+                <div class="campo-grupo">
+                    <label>Correo Electrónico</label>
+                    <input type="email" id="reg-email" placeholder="correo@ejemplo.com" required>
+                </div>
+                <div class="campo-grupo">
+                    <label>Contraseña</label>
+                    <input type="password" id="reg-password" placeholder="Mínimo 6 caracteres" required>
+                </div>
+                <button type="submit" class="btn-enviar">Registrarse y Guardar</button>
+            </form>
+        </div>
+
+        <div id="seccion-login" class="bloque-formulario">
+            <h2>Ingresar al Chat</h2>
+            <form id="form-login">
+                <div class="campo-grupo">
+                    <label>Correo Electrónico</label>
+                    <input type="email" id="login-email" placeholder="correo@ejemplo.com" required>
+                </div>
+                <div class="campo-grupo">
+                    <label>Contraseña</label>
+                    <input type="password" id="login-password" placeholder="Tu contraseña" required>
+                </div>
+                <button type="submit" class="btn-enviar">Iniciar Sesión</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/10.0.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.0.0/firebase-auth-compat.js"></script>
+
+    <script>
+        // CONFIGURACIÓN REAL INTEGRADA DE PRIVCHAT
+        const firebaseConfig = {
+            apiKey: "AIzaSyCRF74kjKmSJxb5ruw3DsmhRj2sz6dHSG8",
+            authDomain: "privchat-5d565.firebaseapp.com",
+            projectId: "privchat-5d565",
+            storageBucket: "privchat-5d565.firebasestorage.app",
+            messagingSenderId: "344652534492",
+            appId: "1:344652534492:web:ad18ec0254e68459559a19"
+        };
+        
+        // Inicializar Firebase localmente
+        if (!firebase.apps.length) {
+            firebase.initializeApp(firebaseConfig);
+        }
+        const authLocal = firebase.auth();
+
+        // Alternar visualmente entre registrarse e ingresar
+        function cambiarPestaña(tipo) {
+            const regSection = document.getElementById('seccion-registro');
+            const logSection = document.getElementById('seccion-login');
+            const tabReg = document.getElementById('tab-registro');
+            const tabLog = document.getElementById('tab-login');
+            if(tipo === 'registro') {
+                regSection.style.display = 'block'; logSection.style.display = 'none';
+                tabReg.classList.add('activo'); tabLog.classList.remove('activo');
+            } else {
+                regSection.style.display = 'none'; logSection.style.display = 'block';
+                tabLog.classList.add('activo'); tabReg.classList.remove('activo');
+            }
+        }
+        cambiarPestaña('login'); // Por defecto abre el login
+
+        // Evento de Registro Directo en Authentication
+        document.getElementById('form-registro').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const email = document.getElementById('reg-email').value.trim();
+            const password = document.getElementById('reg-password').value;
+
+            if (password.length < 6) {
+                alert("La contraseña debe tener mínimo 6 caracteres.");
+                return;
+            }
+
+            authLocal.createUserWithEmailAndPassword(email, password)
+                .then((userCredential) => {
+                    alert("¡Cuenta registrada con éxito en Authentication!");
+                    window.location.href = '/chat.html'; // Redirige a la interfaz del chat
+                })
+                .catch((error) => {
+                    console.error("Error en Auth:", error);
+                    alert("Firebase dice: " + error.message);
+                });
+        });
+
+        // Evento de Inicio de Sesión
+        document.getElementById('form-login').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = document.getElementById('login-email').value.trim();
+            const password = document.getElementById('login-password').value;
+
+            authLocal.signInWithEmailAndPassword(email, password)
+                .then(() => {
+                    window.location.href = '/chat.html';
+                })
+                .catch((error) => {
+                    console.error("Error en Login:", error);
+                    alert("Error al entrar: " + error.message);
+                });
+        });
+    </script>
+</body>
+</html>

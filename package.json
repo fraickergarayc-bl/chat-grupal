@@ -7,12 +7,21 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fraickergarayc-bl/chat-grupal.git"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/fraickergarayc-bl/chat-grupal/issues"
+  },
+  "homepage": "https://github.com/fraickergarayc-bl/chat-grupal#readme",
   "dependencies": {
     "express": "^5.2.1",
+    "express-session": "^1.19.0",
     "socket.io": "^4.8.3"
   }
 }

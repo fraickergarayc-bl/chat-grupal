@@ -1,0 +1,120 @@
+/* ==========================================================================
+   ESTILOS PARA LA PANTALLA DE INICIO DE SESIÓN Y REGISTRO (PRIVCHAT)
+   ========================================================================== */
+:root {
+    --fondo-oscuro: #0f0c1b;
+    --fondo-panel: rgba(22, 18, 44, 0.75);
+    --morado-neon: #a020f0;
+    --morado-brillante: #bc6ff1;
+    --texto-principal: #ffffff;
+    --texto-secundario: #a29bfe;
+    --borde-sutil: rgba(160, 32, 240, 0.3);
+}
+
+body {
+    background-image: url('/img/fondo.jpg'); /* Mantiene tu fondo original */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: var(--texto-principal);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 20px;
+}
+
+/* Contenedor translúcido esmerilado para los formularios */
+.contenedor-login {
+    background: var(--fondo-panel);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--borde-sutil);
+    padding: 40px;
+    border-radius: 16px;
+    width: 100%;
+    max-width: 450px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+}
+
+/* Títulos */
+h1, h2 {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: var(--texto-principal);
+    border-bottom: 1px solid var(--borde-sutil);
+    padding-bottom: 8px;
+}
+
+/* Estilos de los bloques de texto y etiquetas */
+label {
+    display: block;
+    font-size: 14px;
+    color: var(--texto-secundario);
+    margin-bottom: 6px;
+    margin-top: 14px;
+}
+
+/* Cajas de entrada (Inputs) */
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    background: rgba(15, 12, 27, 0.6);
+    border: 1px solid var(--borde-sutil);
+    border-radius: 8px;
+    padding: 12px 16px;
+    color: #fff;
+    font-size: 14px;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+    border-color: var(--morado-brillante);
+    box-shadow: 0 0 8px rgba(188, 111, 241, 0.4);
+}
+
+/* Botones superiores de pestañas (Si los usas) */
+.botones-nav {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+/* Botones de acción principales */
+button, .btn-submit {
+    width: 100%;
+    background: var(--morado-neon);
+    color: #fff;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 15px;
+    margin-top: 18px;
+    transition: all 0.2s ease;
+    box-shadow: 0 0 10px var(--morado-neon);
+}
+
+button:hover, .btn-submit:hover {
+    background: #bd4bfa;
+    transform: translateY(-1px);
+    box-shadow: 0 0 15px var(--morado-brillante);
+}
+
+button:active, .btn-submit:active {
+    transform: translateY(1px);
+}
+
+/* Ajustes para separar las secciones si dejas ambas a la vista */
+.seccion-form {
+    margin-bottom: 35px;
+}

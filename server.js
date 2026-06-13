@@ -1,53 +1,33 @@
 const express = require("express");
+const path = require("path");
+
 const app = express();
-const http = require("http").createServer(app);
-const io = require("socket.io")(http);
 
-app.use(express.static("public"));
-
-let users = [];
-
-/* CONEXIÓN */
-io.on("connection", (socket) => {
-
-  socket.on("join", (username) => {
-    socket.username = username;
-    users.push(username);
-
-    // lista actualizada
-    io.emit("users", users);
-
-    io.emit("message", {
-      user: "Sistema",
-      text: `${username} se unió al chat`,
-      time: new Date().toLocaleTimeString()
-    });
-  });
-
-  socket.on("message", (msg) => {
-    io.emit("message", {
-      user: socket.username,
-      text: msg,
-      time: new Date().toLocaleTimeString()
-    });
-  });
-
-  socket.on("disconnect", () => {
-    users = users.filter(u => u !== socket.username);
-
-    io.emit("users", users);
-
-    io.emit("message", {
-      user: "Sistema",
-      text: `${socket.username} salió del chat`,
-      time: new Date().toLocaleTimeString()
-    });
-  });
-
+// TRUCO: Saltarse la pantalla de advertencia de LocalTunnel automáticamente
+app.use((req, res, next) => {
+  res.setHeader("Bypass-Tunnel-Reminder", "true");
+  next();
 });
 
-const PORT = process.env.PORT || 3000;
+// Servir archivos estáticos desde la carpeta 'public'
+app.use(express.static(path.join(__dirname, "public")));
 
-http.listen(PORT, () => {
-  console.log("Servidor corriendo en puerto " + PORT);
+// Rutas de la aplicación
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "vistas/login.html"));
+});
+
+app.get("/chat", (req, res) => {
+  res.sendFile(path.join(__dirname, "vistas/chat.html"));
+});
+
+// CONFIGURACIÓN DE PUERTO ÚNICA Y VALIDA:
+// Usa el puerto automático del servidor en la nube o el 3000 si estás en tu PC
+const PUERTO = process.env.PORT || 3000;
+
+app.listen(PUERTO, () => {
+    console.log("==================================================");
+    console.log(`🚀 ¡TU SERVIDOR YA ESTÁ ENCIENDIDO!`);
+    console.log(`👉 Tu enlace local es: http://localhost:${PUERTO}`);
+    console.log("==================================================");
 });
